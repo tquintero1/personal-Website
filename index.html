@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #006400; /* Dark Green */
+            text-align: center;
+            margin-top: 50px;
+        }
+        .profile-picture {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #006400; /* Dark Green */
+        }
+        .bio {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 16px;
+            color: #666;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #ffd700; /* Gold */
+            color: #006400; /* Dark Green */
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        footer {
+            background-color: #ffd700; /* Gold */
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer p:first-child {
+            font-weight: bold;
+            font-size: 20px;
+            color: #006400; /* Dark Green */
+        }
+        footer a {
+            color: #006400; /* Dark Green */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .github-icon {
+            font-size: 24px;
+            color: #333;
+            margin-left: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Welcome to My Web Page</h1>
+    <img src="IMG_9393.jpg" alt="Profile Picture" class="profile-picture">
+    <div class="bio">
+        <p>Hello! My name is Tommy Quintero. I am a student at Eastern Michigan University, studying Computer Science. I have a passion for technology and love to learn new things. In my free time, I enjoy coding, reading, and spending time with my family and friends.</p>
+    </div>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('cosc111')">COSC 111</div>
+        <div class="tab" onclick="showTab('algebra')">Algebra</div>
+        <div class="tab" onclick="showTab('speech')">Speech</div>
+        <div class="tab" onclick="showTab('english')">English</div>
+    </div>
+    <div id="cosc111" class="tab-content active">
+        <h2>COSC 111: Intro to Computer Science</h2>
+        <p>This course provides an introduction to the field of computer science. Topics include the history of computing, computer hardware and software, programming concepts, and problem-solving techniques. Students will learn to write simple programs using a high-level programming language and will gain an understanding of the fundamental principles of computer science.</p>
+    </div>
+    <div id="algebra" class="tab-content">
+        <h2>Algebra</h2>
+        <p>This course covers the basic concepts of algebra, including variables, expressions, equations, and inequalities. Students will learn to solve linear and quadratic equations, work with polynomials, and understand the properties of functions. The course also includes an introduction to graphing and the use of algebraic techniques to solve real-world problems.</p>
+    </div>
+    <div id="speech" class="tab-content">
+        <h2>Speech</h2>
+        <p>This course focuses on the principles and practices of effective oral communication. Students will learn to prepare and deliver speeches, develop persuasive arguments, and improve their public speaking skills. Topics include speech organization, audience analysis, delivery techniques, and the use of visual aids. The course also emphasizes the importance of listening and feedback in the communication process.</p>
+    </div>
+    <div id="english" class="tab-content">
+        <h2>English</h2>
+        <p>This course is designed to improve students' reading, writing, and critical thinking skills. Topics include grammar, composition, literature analysis, and research techniques. Students will read and analyze a variety of texts, write essays and research papers, and participate in discussions and presentations. The course aims to enhance students' ability to communicate effectively in both written and oral forms.</p>
+    </div>
+    <footer>
+        <p>Created by Tommy Quintero</p>
+        <p>Contact: <a href="mailto:tquinter@emich.edu">tquinter@emich.edu</a></p>
+        <a href="https://github.com/tquintero1" target="_blank" class="github-icon"><i class="fab fa-github"></i></a>
+    </footer>
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab');
+            var contents = document.querySelectorAll('.tab-content');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
